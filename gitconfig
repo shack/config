@@ -1,0 +1,63 @@
+[alias]
+	abort = rebase --abort
+	amend = commit --amend
+	ann = blame
+	ada = add -A
+	adu = add -u
+	bvv = branch -vv
+	cat = cat-file -p
+	ci = commit -a
+	co = checkout
+	conflict = !"$EDITOR" -c '/^[<=|>]\\{7\\}' `git ls-files --unmerged | cut -c 51- | uniq`
+	contains = branch --contains
+	continue = !git add -u && git rebase --continue
+	cx = commit
+	da = diff HEAD
+	dci = svn dcommit
+	di = diff
+	dx = diff --cached
+	drop = stash drop
+	fixup = commit --amend -C HEAD
+	gn = grep -In
+	graph = log --decorate --graph
+	gw = grep -Inw
+	less = -p cat-file -p
+	lg = log --decorate --graph --name-status
+	lg1 = log --decorate --graph --oneline
+	list = stash list
+	pop = stash pop
+	save = stash save
+	sf = svn fetch
+	st = status -s
+	tar = archive --format=tar
+	upbase = rebase '@{u}'
+	updiff = log -p --reverse @{u}..
+
+[user]
+
+[user]
+	name = Sebastian Hack
+	email = hack@cs.uni-saarland.de
+
+[color]
+	ui = auto
+
+[push]
+	default = upstream
+
+[diff]
+	renames = copies
+
+[merge]
+	conflictstyle = diff3
+    tool = pmerge
+
+[core]
+	pager = less -x 4 -R -~ # -F -c
+	excludesfile = /Users/hack/.gitignore
+
+[mergetool "pmerge"]
+    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$REMOTE" "$PWD/$LOCAL" "$PWD/$MERGED"
+    keepTemporaries = false
+    trustExitCode = false
+    keepBackup = false
