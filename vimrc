@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 set ml
 set mls=5
 set showcmd
@@ -74,12 +76,6 @@ command! Togbg call ToggleBackground()
 nnoremap <F12> :call ToggleBackground()<CR>
 inoremap <F12> <ESC>:call ToggleBackground()<CR>a
 vnoremap <F12> <ESC>:call ToggleBackground()<CR>
-
-" if has("gui_running") 
-" 	colorscheme brookstream
-" else
-" 	" colorscheme redstring
-" endif
 
 filetype plugin on
 filetype indent on
@@ -166,8 +162,8 @@ inoremap <Nul> <C-x><C-o>
 highlight NonText ctermfg=8 guifg=#808080
 highlight SpecialKeys ctermfg=8 guifg=#808080
 
-highlight CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" highlight CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+" highlight CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 " set cursorline
 
 " search for version control markers
@@ -179,14 +175,27 @@ au BufRead,BufNewFile *.v set filetype=coq
 " see tabs and trailing spaces
 set listchars=tab:>-,eol:$,trail:.,extends:#
 
-let g:clang_use_library = 1
-let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
-let g:clang_snippets = 1
-let g:clang_snippets_engine = 'clang_complete'
-let g:clang_auto_select = 1
+" clang complete
+let g:clang_auto_select=1
+let g:clang_complete_auto=1
+let g:clang_complete_copen=1
 let g:clang_close_preview = 1
-let g:clang_debug = 1
-let g:clang_complete_macros = 1
+let g:clang_hl_errors=1
+let g:clang_periodic_quickfix=0
+let g:clang_snippets=1
+let g:clang_snippets_engine="clang_complete"
+let g:clang_conceal_snippets=1
+let g:clang_exec="clang"
+let g:clang_user_options=""
+let g:clang_auto_user_options="path, .clang_complete"
+let g:clang_use_library=1
+let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+let g:clang_sort_algo="priority"
+let g:clang_complete_macros=1
+let g:clang_complete_patterns=0
+nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
+
+" no preview window in omnicomplte
 set completeopt-=preview
 
 " make cases indent properly
