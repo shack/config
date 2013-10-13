@@ -4,3 +4,6 @@
 [submodule "bundle/quicktask"]
 	path = bundle/quicktask
 	url = https://github.com/aaronbieber/quicktask.git
+[submodule "vim/bundle/snipmate"]
+	path = vim/bundle/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
