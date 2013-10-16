@@ -95,7 +95,7 @@ endif
 
 function InsertCHeader ()
   normal gg
-  r ~/.vim/c_skel.txt
+  r ~/.vim/skel/c_skel.txt
   % s@$file@\=matchstr(bufname('%'),'[^/]*$')@g
   % s/$year/\=strftime("%Y")/g
   % s/$date/\=strftime("%d.%m.%Y")/g
@@ -106,7 +106,7 @@ endfunction
 
 function InsertTexHeader ()
   normal gg
-  r ~/.vim/tex_skel.txt
+  r ~/.vim/skel/tex_skel.txt
   normal gg
   normal dd
   normal G

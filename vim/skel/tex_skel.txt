@@ -1,0 +1,12 @@
+% vim:spell:spelllang=de
+
+\documentclass[a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{a4wide}
+
+\begin{document}
+
+
+\end{document}
