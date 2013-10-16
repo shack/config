@@ -25,21 +25,15 @@ set statusline=%F%m%r%h%w%=%{&fenc}\ %{&ff}\ %Y\ 0x\%02.2B\ %4l/%4L\ %4v
 " set statusline=%F%m%r%h%w%=%{strftime(\"%H:%M\")}\ %{&fenc}\ %{&ff}\ %Y\ 0x\%02.2B\ %4l/%4L\ %4v
 set laststatus=2
 
-if has("gui_running") && ! has("gui_macvim")
-	set nomacatsui
-	set number
-endif
+syntax enable
 
 if has("gui_running")
-	colorscheme slate
-	" let g:solarized_style="light"
-	" colorscheme solarized
-	" colorscheme zenburn
+	colorscheme solarized
+    set background=dark
 endif
 
 if has("gui_macvim")
 	set guifont=Monaco:h12
-	set number
 end
 
 " more sphisticated % matching
@@ -64,12 +58,11 @@ map  <S-Del> :bd<CR>
 " colorscheme solarized
 
 function! ToggleBackground()
-	if g:solarized_style=="dark"
-		let g:solarized_style="light"
-		colorscheme solarized
+	echo &background
+	if &background =~"dark"
+		set background=light
 	else
-		let g:solarized_style="dark"
-		colorscheme solarized
+		set background=dark
 	endif
 endfunction
 command! Togbg call ToggleBackground()
@@ -85,7 +78,7 @@ function SetTexMakePrg ()
 	if filereadable('Makefile')
 		set makeprg=make
 	else
-		set makeprg=latexmk\ -quiet\ -pdf\ %
+		set makeprg=rubber\ -d\ %
 	endif
 endfunction
 
@@ -200,5 +193,4 @@ set completeopt-=preview
 
 " make cases indent properly
 set cinoptions=:0
-syntax on
 
