@@ -18,8 +18,6 @@ set guioptions-=r
 set scrolloff=5
 set dictionary=/usr/share/dict/words
 
-" cab e tabe
-
 " nice status line
 set statusline=%F%m%r%h%w%=%{&fenc}\ %{&ff}\ %Y\ 0x\%02.2B\ %4l/%4L\ %4v
 " set statusline=%F%m%r%h%w%=%{strftime(\"%H:%M\")}\ %{&fenc}\ %{&ff}\ %Y\ 0x\%02.2B\ %4l/%4L\ %4v
@@ -116,11 +114,21 @@ function InsertHHeader ()
   call append(line('$'), "#endif /* " . fname . " */")
 endfunction
 
+function! DisableIndent()
+        set autoindent&
+        set cindent&
+        set smartindent&
+        set indentexpr&
+endfunction
+
 " Insert c_skel.txt into c and h files
 autocmd BufNewFile *.cpp call InsertCHeader()
 autocmd BufNewFile *.c call InsertCHeader()
 autocmd BufNewFile *.h call InsertHHeader()
 autocmd BufNewFile *.tex call InsertTexHeader()
+
+" disable standard indenting on tex files
+autocmd FileType tex call DisableIndent()
 
 " remove trailing spaces whenever we save a C/C++ file
 autocmd FileType c,cpp,h,hpp,tex autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
