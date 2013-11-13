@@ -16,3 +16,9 @@
 [submodule "vim/bundle/vim-colors-solarized"]
 	path = vim/bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim/bundle/atp_vim"]
+	path = vim/bundle/atp_vim
+	url = https://github.com/coot/atp_vim.git
