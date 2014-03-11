@@ -10,6 +10,7 @@ export RSYNC_RSH=ssh
 export TEXINPUTS=".:${HOME}/sb/misc:${HOME}/texmf:"
 export PYTHONPATH="${HOME}/local/lib/python2.7/site-packages/"
 export ILOG_LICENSE_FILE=/opt/ilog/ilm/access.ilm
+export ASAN_SYMBOLIZER_PATH=/opt/local/bin/llvm-symbolizer-mp-3.5
 
 alias lmake="latexmk -quiet -pdf"
 alias gitx="open -a sourcetree ."
