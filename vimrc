@@ -1,5 +1,6 @@
 execute pathogen#infect()
 
+set nu
 set ml
 set mls=5
 set showcmd
@@ -67,6 +68,7 @@ command! Togbg call ToggleBackground()
 nnoremap <F12> :call ToggleBackground()<CR>
 inoremap <F12> <ESC>:call ToggleBackground()<CR>a
 vnoremap <F12> <ESC>:call ToggleBackground()<CR>
+map  <F10> :Latexmk<CR>
 
 filetype plugin on
 filetype indent on
@@ -128,7 +130,7 @@ autocmd BufNewFile *.h call InsertHHeader()
 autocmd BufNewFile *.tex call InsertTexHeader()
 
 " disable standard indenting on tex files
-autocmd FileType tex call DisableIndent()
+" autocmd FileType tex call DisableIndent()
 
 " remove trailing spaces whenever we save a C/C++ file
 autocmd FileType c,cpp,h,hpp,tex autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
@@ -141,11 +143,6 @@ if has("autocmd")
 " Don't do it when the position is invalid or when inside an event
 " handler (happens when dropping a file on gvim).
 	autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
-endif
-
-if has ("python")
-	" imap <silent> <F5> <C-O>:pyfile ~/.vim/pyfiles/latexBeginEnd.py<CR>
-	map & :pyfile ~/.vim/pyfiles/align.py<CR>
 endif
 
 inoremap <Nul> <C-x><C-o>
@@ -202,3 +199,6 @@ set completeopt-=preview
 " make cases indent properly
 set cinoptions=:0
 
+" make latex-box treat autoref properly
+let g:LatexBox_ref_pattern = '\C\\v\?\(eq\|page\|[cC]\)\?\(auto\)\?ref\*\?\_\s*{'
+let g:LatexBox_viewer = 'open'
