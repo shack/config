@@ -18,6 +18,7 @@ set guioptions-=m
 set guioptions-=r
 set scrolloff=5
 set dictionary=/usr/share/dict/words
+set nofoldenable
 
 " nice status line
 set statusline=%F%m%r%h%w%=%{&fenc}\ %{&ff}\ %Y\ 0x\%02.2B\ %4l/%4L\ %4v
