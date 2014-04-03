@@ -12,9 +12,19 @@ export PYTHONPATH="${HOME}/local/lib/python2.7/site-packages/"
 export ILOG_LICENSE_FILE=/opt/ilog/ilm/access.ilm
 export ASAN_SYMBOLIZER_PATH=/opt/local/bin/llvm-symbolizer-mp-3.5
 
+if [ "$TERM" != "dumb" ]; then
+    export LS_OPTIONS='--color=auto'
+    eval `gdircolors ~/.dir_colors`
+fi
+
+alias ls='gls $LS_OPTIONS -hF'
+alias ll='gls $LS_OPTIONS -lhF'
+alias l='gls $LS_OPTIONS -lAhF'
+
 alias lmake="latexmk -quiet -pdf"
 alias gitx="open -a sourcetree ."
 alias TODO="mvim ~/Desktop/TODO"
+alias less='less -r'
 
 bind 'C-w: backward-kill-word'
 
