@@ -1,5 +1,7 @@
 execute pathogen#infect()
 
+let live=0
+
 set nu
 set ml
 set mls=5
@@ -27,9 +29,11 @@ set laststatus=2
 
 syntax enable
 
-if has("gui_running")
-	colorscheme solarized
-    set background=dark
+if live == 0
+    if has("gui_running") 
+        colorscheme solarized
+        set background=dark
+    endif
 endif
 
 if has("gui_macvim")
@@ -125,9 +129,11 @@ function! DisableIndent()
 endfunction
 
 " Insert c_skel.txt into c and h files
-autocmd BufNewFile *.cpp call InsertCHeader()
-autocmd BufNewFile *.c call InsertCHeader()
-autocmd BufNewFile *.h call InsertHHeader()
+if live == 0
+    "autocmd BufNewFile *.cpp call InsertCHeader()
+    "autocmd BufNewFile *.c call InsertCHeader()
+    "autocmd BufNewFile *.h call InsertHHeader()
+endif
 autocmd BufNewFile *.tex call InsertTexHeader()
 
 " disable standard indenting on tex files
@@ -203,3 +209,4 @@ set cinoptions=:0
 " make latex-box treat autoref properly
 let g:LatexBox_ref_pattern = '\C\\v\?\(eq\|page\|[cC]\)\?\(auto\)\?ref\*\?\_\s*{'
 let g:LatexBox_viewer = 'open'
+let g:LatexBox_quickfix = 1
