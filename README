@@ -1,1 +1,8 @@
-Update all submodules: git submodule foreach git pull origin master 
+* Installation:
+  - Initialize all submodules: 
+      git submodule init
+      git submodule update
+  - Create links in $HOME:
+      ./setup.sh
+
+* Update all submodules: git submodule foreach git pull origin master 
