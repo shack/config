@@ -130,9 +130,9 @@ endfunction
 
 " Insert c_skel.txt into c and h files
 if live == 0
-    "autocmd BufNewFile *.cpp call InsertCHeader()
-    "autocmd BufNewFile *.c call InsertCHeader()
-    "autocmd BufNewFile *.h call InsertHHeader()
+    autocmd BufNewFile *.cpp call InsertCHeader()
+    autocmd BufNewFile *.c call InsertCHeader()
+    autocmd BufNewFile *.h call InsertHHeader()
 endif
 autocmd BufNewFile *.tex call InsertTexHeader()
 
