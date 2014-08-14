@@ -210,3 +210,6 @@ set cinoptions=:0
 let g:LatexBox_ref_pattern = '\C\\v\?\(eq\|page\|[cC]\)\?\(auto\)\?ref\*\?\_\s*{'
 let g:LatexBox_viewer = 'open'
 let g:LatexBox_quickfix = 1
+
+" make .tex file latex by default
+let g:tex_flavor = "latex"
