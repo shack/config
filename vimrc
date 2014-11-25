@@ -213,3 +213,6 @@ let g:LatexBox_quickfix = 1
 
 " make .tex file latex by default
 let g:tex_flavor = "latex"
+
+" Disable folding in markdown
+let g:vim_markdown_folding_disabled=1
