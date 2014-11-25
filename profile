@@ -1,14 +1,14 @@
 export LANG="en_US.utf-8"
 export PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig:$PKG_CONFIG_PATH
 export MACPORTS_PREFIX=/opt/local
-export PATH=${HOME}/local/bin:/usr/texbin:${HOME}/bin:${MACPORTS_PREFIX}/bin:${MACPORTS_PREFIX}/sbin:/opt/ilog/cplex/bin:${PATH}
+export PATH=${HOME}/.local/bin:/usr/texbin:${HOME}/bin:${MACPORTS_PREFIX}/bin:${MACPORTS_PREFIX}/sbin:/opt/ilog/cplex/bin:${PATH}
 export MANPATH=${MACPORTS_PREFIX}/share/man:${MANPATH}
 export EDITOR=vim
 export CLICOLOR=1
 # export LSCOLORS=GxFxCxDxBxegedabagacad
 export RSYNC_RSH=ssh
 export TEXINPUTS=".:${HOME}/sb/misc:${HOME}/texmf:"
-export PYTHONPATH="${HOME}/local/lib/python2.7/site-packages/"
+export PYTHONPATH="${HOME}/.local/lib/python2.7/site-packages/"
 export ILOG_LICENSE_FILE=/opt/ilog/ilm/access.ilm
 export ASAN_SYMBOLIZER_PATH=/opt/local/bin/llvm-symbolizer-mp-3.5
 
