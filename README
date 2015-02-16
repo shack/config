@@ -5,4 +5,7 @@
   - Create links in $HOME:
       ./setup.sh
 
+* Add a new git submodule
+  - git submodule add <URL> <local-dir>
+
 * Update all submodules: git submodule foreach git pull origin master 
