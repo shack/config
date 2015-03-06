@@ -8,7 +8,7 @@ export CLICOLOR=1
 # export LSCOLORS=GxFxCxDxBxegedabagacad
 export RSYNC_RSH=ssh
 export TEXINPUTS=".:${HOME}/sb/misc:${HOME}/texmf:"
-export PYTHONPATH="${HOME}/.local/lib/python2.7/site-packages/"
+export PYTHONPATH="${HOME}/.local/lib/python2.7/site-packages/:${PYTHONPATH}"
 export ILOG_LICENSE_FILE=/opt/ilog/ilm/access.ilm
 export ASAN_SYMBOLIZER_PATH=/opt/local/bin/llvm-symbolizer-mp-3.5
 
@@ -52,3 +52,7 @@ xterm-*color)
 esac
 
 set -o vi
+
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
+fi
