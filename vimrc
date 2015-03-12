@@ -37,7 +37,7 @@ if live == 0
 endif
 
 if has("gui_macvim")
-	set guifont=Monaco:h12
+	set guifont=Monaco\ for\ Powerline:h12
 end
 
 " more sphisticated % matching
@@ -216,3 +216,6 @@ let g:tex_flavor = "latex"
 
 " Disable folding in markdown
 let g:vim_markdown_folding_disabled=1
+
+" enable powerline fonts
+let g:airline_powerline_fonts = 1
