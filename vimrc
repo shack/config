@@ -31,8 +31,8 @@ syntax enable
 
 if live == 0
     if has("gui_running") 
-        colorscheme solarized
-        set background=dark
+        colorscheme lucius
+        LuciusDarkLowContrast
     endif
 endif
 
