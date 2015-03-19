@@ -6,6 +6,14 @@
       ./setup.sh
 
 * Add a new git submodule
-  - git submodule add <URL> <local-dir>
+    git submodule add <URL> <local-dir>
 
-* Update all submodules: git submodule foreach git pull origin master 
+* Update all submodules: 
+    git submodule foreach git pull origin master 
+
+* Remove submodule:
+    git submodule deinit asubmodule    
+    git rm asubmodule
+    # Note: asubmodule (no trailing slash)
+    # or, if you want to leave it in your working tree
+    git rm --cached asubmodule
