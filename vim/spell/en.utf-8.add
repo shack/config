@@ -3,3 +3,5 @@ fig
 inlining
 metaprogramming
 dominators
+virtualized
+vectorizer
