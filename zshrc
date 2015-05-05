@@ -27,4 +27,6 @@ alias ls='gls $LS_OPTIONS -hF'
 alias ll='gls $LS_OPTIONS -lhF'
 alias l='gls $LS_OPTIONS -lAhF'
 
+precmd () { print -Pn "\e]1;%2d\a" }
+
 source /Users/hack/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
