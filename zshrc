@@ -16,6 +16,7 @@ export PYTHON_BASE=`python -m site --user-base`
 export EDITOR=vim
 export MACPORTS_PREFIX="/opt/local"
 export PATH=${HOME}/.local/bin:${HOME}/bin:${PYTHON_BASE}/bin:${MACPORTS_PREFIX}/bin:${MACPORTS_PREFIX}/sbin:/opt/ilog/cplex/bin:${HOME}${PATH}
+export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.local/lib"
 export TEXINPUTS=".:${HOME}/sb/misc:${HOME}/texmf:"
 
 if [ "$TERM" != "dumb" ]; then
