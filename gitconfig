@@ -61,3 +61,5 @@
     keepTemporaries = false
     trustExitCode = false
     keepBackup = false
+[credential]
+	helper = osxkeychain
