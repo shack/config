@@ -189,7 +189,6 @@ let g:clang_snippets=1
 let g:clang_snippets_engine="clang_complete"
 let g:clang_conceal_snippets=0
 let g:clang_exec="clang"
-let g:clang_user_options=""
 let g:clang_auto_user_options="path, .clang_complete"
 let g:clang_use_library=1
 let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
