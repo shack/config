@@ -218,3 +218,5 @@ let g:vim_markdown_folding_disabled=1
 
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
+
+let g:gitgutter_max_signs = 2000
