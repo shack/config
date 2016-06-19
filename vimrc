@@ -22,9 +22,6 @@ set scrolloff=5
 set dictionary=/usr/share/dict/words
 set nofoldenable
 
-" enable ctrl-n to include dictionary completions
-set complete+=k
-
 " nice status line
 " set statusline=%F%m%r%h%w%=%{&fenc}\ %{&ff}\ %Y\ 0x\%02.2B\ %4l/%4L\ %4v
 " set statusline=%F%m%r%h%w%=%{strftime(\"%H:%M\")}\ %{&fenc}\ %{&ff}\ %Y\ 0x\%02.2B\ %4l/%4L\ %4v
