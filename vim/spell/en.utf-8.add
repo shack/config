@@ -6,3 +6,5 @@ dominators
 virtualized
 vectorizer
 concretization
+vectorization
+vectorize
