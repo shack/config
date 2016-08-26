@@ -11,11 +11,8 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
-Plug 'Valloric/YouCompleteMe', {
-     \ 'build'      : {
-        \ 'mac'     : './install.sh --clang-completer --system-libclang --rustc-completer',
-        \ }
-     \ }
+Plug 'Rip-Rip/clang_complete'
+Plug 'racer-rust/vim-racer'
 
 call plug#end()
 
@@ -195,3 +192,7 @@ let g:vim_markdown_folding_disabled=1
 let g:airline_powerline_fonts = 1
 
 let g:gitgutter_max_signs = 2000
+
+set hidden
+let g:racer_cmd = $HOME."/.cargo/bin/racer"
+let $RUST_SRC_PATH = $HOME."/tmp/rust/src/"
