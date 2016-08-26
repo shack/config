@@ -79,7 +79,7 @@ fi
 alias ls='gls $LS_OPTIONS -hF'
 alias ll='gls $LS_OPTIONS -lhF'
 alias l='gls $LS_OPTIONS -lAhF'
-alias cgdb='cgdb -d ggdb'
+# alias cgdb='cgdb -d ggdb'
 
 precmd () { print -Pn "\e]1;%2d\a" }
 
