@@ -220,3 +220,8 @@ let g:vim_markdown_folding_disabled=1
 let g:airline_powerline_fonts = 1
 
 let g:gitgutter_max_signs = 2000
+
+" Rust/racer stuff
+set hidden
+let g:racer_cmd = $HOME."/.cargo/bin/racer"
+let $RUST_SRC_PATH = $HOME."/tmp/rust/src/"
