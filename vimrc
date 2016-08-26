@@ -170,7 +170,7 @@ highlight SpecialKeys ctermfg=8 guifg=#808080
 " set cursorline
 
 " search for version control markers
-" map \ /^\(<<<<<<<\\|=======\\|>>>>>>>\)
+map <Leader>d /^\(<<<<<<<\\|=======\\|>>>>>>>\)
 
 " syntax highlighting for coq
 au BufRead,BufNewFile *.v set filetype=coq
