@@ -1,0 +1,13 @@
+% vim:spell:spelllang=de
+
+\documentclass[a4paper]{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fixltx2e}
+\usepackage{nag}
+
+\begin{document}
+
+
+\end{document}
