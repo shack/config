@@ -6,8 +6,6 @@ gitconfig
 gitignore
 latexmkrc
 profile
-vim
-vimrc
 wgetrc
 "
 
