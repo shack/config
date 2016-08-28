@@ -1,4 +1,6 @@
-let $VIMHOME=expand('<sfile>:p:h')
+" Get abolsute path without symlinks to vim configuration directory
+" see: http://stackoverflow.com/questions/4976776/how-to-get-path-to-the-current-vimscript-being-executed
+let $VIMHOME=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
 call plug#begin("$VIMHOME/plugged")
 
@@ -43,7 +45,7 @@ colorscheme lucius
 LuciusDarkLowContrast
 " endif
 
-if exists("neovim_dot_app") || exists("gui_macvim")
+if exists("neovim_dot_app") || has("gui_macvim")
 	set guifont=Monaco\ for\ Powerline:h12
 end
 
