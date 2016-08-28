@@ -81,7 +81,6 @@ alias ll='gls $LS_OPTIONS -lhF'
 alias l='gls $LS_OPTIONS -lAhF'
 
 alias vim=nvim
-alias mvim=gnvim
 
 precmd () { print -Pn "\e]1;%2d\a" }
 
