@@ -39,11 +39,11 @@ set nofoldenable
 syntax enable
 
 " if has("gui_running") 
-    colorscheme lucius
-    LuciusDarkLowContrast
+colorscheme lucius
+LuciusDarkLowContrast
 " endif
 
-if has("gui_macvim")
+if exists("neovim_dot_app") || exists("gui_macvim")
 	set guifont=Monaco\ for\ Powerline:h12
 end
 
@@ -191,8 +191,10 @@ let g:vim_markdown_folding_disabled=1
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
 
+" Increase threshold for diff signs left
 let g:gitgutter_max_signs = 2000
 
+" Rust stuff
 set hidden
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let $RUST_SRC_PATH = $HOME."/tmp/rust/src/"
