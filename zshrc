@@ -63,12 +63,10 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
-export LC_ALL=en_US.UTF-8  
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export PYTHON_BASE=`python -m site --user-base`
 export EDITOR=vim
-export PATH="${HOME}/.local/bin:${HOME}/bin:${PYTHON_BASE}/bin:/usr/local/bin:$PATH"
-export DYLD_LIBRARY_PATH="$DYLD_LIBRARY_PATH:$HOME/.local/lib"
+export PATH="${HOME}/bin::/usr/local/bin:/usr/local/sbin:$PATH"
 export TEXINPUTS=".:${HOME}/sb/misc:${HOME}/texmf:"
 
 if [ "$TERM" != "dumb" ]; then
