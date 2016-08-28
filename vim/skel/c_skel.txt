@@ -1,8 +1,0 @@
-/**
- * @file   $file 
- * @date   $date
- * @author Sebastian Hack
- *
- * Copyright (C) $year Saarland University
- */
-
