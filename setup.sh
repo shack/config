@@ -30,3 +30,5 @@ do
         ln -s "$s" "$t"
     fi
 done
+
+ln -s "$self/nvim" "$HOME/.config"
