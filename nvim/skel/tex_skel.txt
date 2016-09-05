@@ -4,7 +4,6 @@
 
 \usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{fixltx2e}
 \usepackage{nag}
 
 \begin{document}
