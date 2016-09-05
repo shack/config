@@ -85,7 +85,7 @@ set grepprg=grep\ -nH\ $*
 
 function InsertCHeader ()
   normal gg
-  r $VIMHOME/c_skel.txt
+  r $VIMHOME/skel/c_skel.txt
   % s@$file@\=matchstr(bufname('%'),'[^/]*$')@g
   % s/$year/\=strftime("%Y")/g
   % s/$date/\=strftime("%d.%m.%Y")/g
@@ -96,7 +96,7 @@ endfunction
 
 function InsertTexHeader ()
   normal gg
-  r $VIMHOME/tex_skel.txt
+  r $VIMHOME/skel/tex_skel.txt
   normal gg
   normal dd
   normal G
