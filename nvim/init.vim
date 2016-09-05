@@ -180,7 +180,7 @@ set cinoptions=:0
 
 " make latex-box treat autoref properly
 let g:LatexBox_ref_pattern= '\m\C\\v\?\(eq\|page\|auto\|short\|[cC]\)\?ref\*\?\_\s*{'
-let g:LatexBox_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
 let g:LatexBox_quickfix = 2
 let g:LatexBox_latexmk_async = 1
 let g:LatexBox_personal_latexmkrc = 1
