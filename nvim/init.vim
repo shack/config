@@ -37,6 +37,7 @@ set guioptions-=r
 set scrolloff=5
 set dictionary=/usr/share/dict/words
 set nofoldenable
+set nowrap
 
 syntax enable
 
