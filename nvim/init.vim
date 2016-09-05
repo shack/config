@@ -41,7 +41,7 @@ set nowrap
 
 syntax enable
 
-" if has("gui_running") 
+" if has("gui_running")
 colorscheme lucius
 LuciusDarkLowContrast
 " endif
