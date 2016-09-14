@@ -67,7 +67,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
 export PATH="${HOME}/bin::/usr/local/bin:/usr/local/sbin:$PATH"
-export TEXINPUTS=".:${HOME}/sb/misc:${HOME}/texmf:"
+export TEXINPUTS=".:${HOME}/texmf:"
 
 if [ "$TERM" != "dumb" ]; then
     export LS_OPTIONS='--color=auto'
