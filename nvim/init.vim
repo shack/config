@@ -15,6 +15,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'Rip-Rip/clang_complete'
 Plug 'racer-rust/vim-racer'
+Plug 'godlygeek/tabular'
 
 call plug#end()
 
@@ -60,6 +61,14 @@ set history=100
 " set shell like completion
 set wildmenu
 set wildmode=list:longest
+
+" mappings for tabilarize
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 
 " easy buffer switching
 map  <S-Right> :bnext<CR>
