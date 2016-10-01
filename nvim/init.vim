@@ -40,6 +40,7 @@ set dictionary=/usr/share/dict/words
 set nofoldenable
 set nowrap
 set noincsearch
+set laststatus=2
 
 syntax enable
 
