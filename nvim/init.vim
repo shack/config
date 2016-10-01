@@ -42,6 +42,9 @@ set nowrap
 set noincsearch
 set laststatus=2
 
+" open split window on the right
+set splitright
+
 syntax enable
 
 " if has("gui_running")
