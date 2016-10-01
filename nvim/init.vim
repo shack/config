@@ -4,14 +4,14 @@ let $VIMHOME=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
 call plug#begin("$VIMHOME/plugged")
 
+Plug 'jonathanfilip/vim-lucius'
 Plug 'LaTeX-Box-Team/LaTeX-Box'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-scripts/CSApprox'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'vim-airline/vim-airline'
 Plug 'Rip-Rip/clang_complete'
 Plug 'racer-rust/vim-racer'
