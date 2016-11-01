@@ -85,4 +85,6 @@ precmd () { print -Pn "\e]1;%2d\a" }
 # don't share history among terminals
 setopt no_share_history
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 # source /Users/hack/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
