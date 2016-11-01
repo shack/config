@@ -38,7 +38,7 @@ set guioptions-=r
 set scrolloff=5
 set dictionary=/usr/share/dict/words
 set nofoldenable
-set nowrap
+set wrap
 set noincsearch
 set laststatus=2
 
@@ -67,19 +67,9 @@ set wildmenu
 set wildmode=list:longest
 
 " mappings for tabilarize
-if exists(":Tabularize")
-  nmap <Leader>a= :Tabularize /=<CR>
-  vmap <Leader>a= :Tabularize /=<CR>
-  nmap <Leader>a: :Tabularize /:\zs<CR>
-  vmap <Leader>a: :Tabularize /:\zs<CR>
-endif
-
-" easy buffer switching
-map  <S-Right> :bnext<CR>
-imap <S-Right> <ESC>:bnext<CR>
-map  <S-Left> :bprev<CR>
-imap <S-Left> <ESC>:bprev<CR>
-map  <S-Del> :bd<CR>
+map <Leader>a& :Tabularize /&<CR>
+map <Leader>a= :Tabularize /=<CR>
+map <Leader>a: :Tabularize /:\zs<CR>
 
 function! ToggleBackground()
 	echo &background
@@ -137,6 +127,15 @@ autocmd BufNewFile *.tex call InsertTexHeader()
 " remove trailing spaces whenever we save a C/C++ file
 autocmd FileType c,cpp,h,hpp,tex autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
+" see tabs and trailing spaces
+set listchars=tab:>-,eol:$,trail:.,extends:#
+
+" syntax highlighting for coq
+au BufRead,BufNewFile *.v set filetype=coq
+
+" C indent options (:help cinoptions-values)
+set cinoptions=l1,g0,t0,(0,w1,W4
+
 " make snipmate recognize tex snippets by also setting the file type tex
 " au BufRead,BufNewFile *.text set ft=plaintex.tex
 
@@ -161,12 +160,6 @@ inoremap <Nul> <C-x><C-o>
 " search for version control markers
 map <Leader>d /^\(<<<<<<<\\|=======\\|>>>>>>>\)
 
-" syntax highlighting for coq
-au BufRead,BufNewFile *.v set filetype=coq
-
-" see tabs and trailing spaces
-set listchars=tab:>-,eol:$,trail:.,extends:#
-
 " clang complete
 let g:clang_auto_select=1
 let g:clang_complete_auto=1
@@ -189,15 +182,18 @@ nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
 " no preview window in omnicomplte
 set completeopt-=preview
 
-" make cases indent properly
-set cinoptions=:0
-
 " make latex-box treat autoref properly
 let g:LatexBox_ref_pattern= '\m\C\\v\?\(eq\|page\|auto\|short\|[cC]\)\?ref\*\?\_\s*{'
-let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
 let g:LatexBox_quickfix = 2
 let g:LatexBox_latexmk_async = 1
 let g:LatexBox_personal_latexmkrc = 1
+
+" mac specific
+let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+map <silent> <Leader>ls :silent
+                \ !/Applications/Skim.app/Contents/SharedSupport/displayline -r -b
+                \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
+                \ "%:p" <CR>
 
 " make .tex file latex by default
 let g:tex_flavor = "latex"
