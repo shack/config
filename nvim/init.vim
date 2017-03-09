@@ -19,6 +19,7 @@ Plug 'godlygeek/tabular'
 
 call plug#end()
 
+set vb " no sound effects
 set nu
 set ml
 set mls=5
@@ -191,7 +192,7 @@ let g:LatexBox_personal_latexmkrc = 1
 " mac specific
 let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
 map <silent> <Leader>ls :silent
-                \ !/Applications/Skim.app/Contents/SharedSupport/displayline -r -b
+                \ !/usr/local/displayline -r -b
                 \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
                 \ "%:p" <CR>
 
