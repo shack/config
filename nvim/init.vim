@@ -174,10 +174,14 @@ let g:clang_conceal_snippets=0
 let g:clang_exec="clang"
 let g:clang_auto_user_options="path, .clang_complete"
 let g:clang_use_library=1
-let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
 let g:clang_sort_algo="priority"
 let g:clang_complete_macros=1
 let g:clang_complete_patterns=0
+if has("mac")
+    let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
+elseif has("unix")
+    let g:clang_library_path='/usr/lib/libclang.so'
+endif
 nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
 
 " no preview window in omnicomplte
@@ -190,7 +194,11 @@ let g:LatexBox_latexmk_async = 1
 let g:LatexBox_personal_latexmkrc = 1
 
 " mac specific
-let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+if has("mac")
+    let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+elseif has("unix")
+    let g:LatexBox_viewer = '/usr/bin/okular'
+endif
 map <silent> <Leader>ls :silent
                 \ !/usr/local/displayline -r -b
                 \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"

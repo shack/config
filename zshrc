@@ -82,7 +82,7 @@ else
     GNU_PREFIX=""
 fi
 
-if [[ "$TERM" != "dumb" ]]; 
+if [[ "$TERM" != "dumb" ]];
 then
     export LS_OPTIONS='--color=auto'
     eval `${GNU_PREFIX}dircolors ~/.dir_colors`
@@ -93,6 +93,11 @@ alias ll="${GNU_PREFIX}ls $LS_OPTIONS -lhF"
 alias l="${GNU_PREFIX}ls $LS_OPTIONS -lAhF"
 
 alias vim=nvim
+
+if [[ `uname` == "Linux" ]];
+then
+    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
 
 precmd () { print -Pn "\e]1;%2d\a" }
 
