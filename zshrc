@@ -1,5 +1,11 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/hack/.oh-my-zsh
+if [[ `uname` == "Darwin" ]];
+then
+    # I have omzsh in my home on my mac and globally installed under linux
+    export ZSH="$HOME/.oh-my-zsh";
+else
+    export ZSH=/usr/share/oh-my-zsh;
+fi
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -67,16 +73,24 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
 export PATH="${HOME}/bin::/usr/local/bin:/usr/local/sbin:$PATH"
-# export TEXINPUTS=".:${HOME}/texmf:"
 
-if [ "$TERM" != "dumb" ]; then
-    export LS_OPTIONS='--color=auto'
-    eval `gdircolors ~/.dir_colors`
+# Under OSX, the gnu coreutils binaries start with g
+if [[ `uname` == "Darwin" ]];
+then
+    GNU_PREFIX="g"
+else
+    GNU_PREFIX=""
 fi
 
-alias ls='gls $LS_OPTIONS -hF'
-alias ll='gls $LS_OPTIONS -lhF'
-alias l='gls $LS_OPTIONS -lAhF'
+if [[ "$TERM" != "dumb" ]]; 
+then
+    export LS_OPTIONS='--color=auto'
+    eval `${GNU_PREFIX}dircolors ~/.dir_colors`
+fi
+
+alias ls="${GNU_PREFIX}ls $LS_OPTIONS -hF"
+alias ll="${GNU_PREFIX}ls $LS_OPTIONS -lhF"
+alias l="${GNU_PREFIX}ls $LS_OPTIONS -lAhF"
 
 alias vim=nvim
 
