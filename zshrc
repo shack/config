@@ -71,8 +71,8 @@ bindkey -v
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export EDITOR=vim
-export PATH="${HOME}/bin::/usr/local/bin:/usr/local/sbin:$PATH"
+export EDITOR=nvim
+export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 # Under OSX, the gnu coreutils binaries start with g
 if [[ `uname` == "Darwin" ]];
@@ -91,12 +91,14 @@ fi
 alias ls="${GNU_PREFIX}ls $LS_OPTIONS -hF"
 alias ll="${GNU_PREFIX}ls $LS_OPTIONS -lhF"
 alias l="${GNU_PREFIX}ls $LS_OPTIONS -lAhF"
-
 alias vim=nvim
 
 if [[ `uname` == "Linux" ]];
 then
+    # see the systemd script that enables the ssh agent ~/config/systemd/user/ssh-agent.service
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+    # ... to have an open just like on the mac
+    alias open="xdg-open"
 fi
 
 precmd () { print -Pn "\e]1;%2d\a" }

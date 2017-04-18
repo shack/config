@@ -5,7 +5,8 @@ let $VIMHOME=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 call plug#begin("$VIMHOME/plugged")
 
 Plug 'jonathanfilip/vim-lucius'
-Plug 'LaTeX-Box-Team/LaTeX-Box'
+" Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'lervag/vimtex'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 " Plug 'sheerun/vim-polyglot'
@@ -188,21 +189,37 @@ nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
 set completeopt-=preview
 
 " make latex-box treat autoref properly
-let g:LatexBox_ref_pattern= '\m\C\\v\?\(eq\|page\|auto\|short\|[cC]\)\?ref\*\?\_\s*{'
-let g:LatexBox_quickfix = 2
-let g:LatexBox_latexmk_async = 1
-let g:LatexBox_personal_latexmkrc = 1
+" let g:LatexBox_ref_pattern= '\m\C\\v\?\(eq\|page\|auto\|short\|[cC]\)\?ref\*\?\_\s*{'
+" let g:LatexBox_quickfix = 2
+" let g:LatexBox_latexmk_async = 1
+" let g:LatexBox_personal_latexmkrc = 1
 
 " mac specific
+" if has("mac")
+    " let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+" elseif has("unix")
+    " let g:LatexBox_viewer = '/usr/bin/okular'
+" endif
+
+let g:vimtex_quickfix_mode = 2
+let g:vimtex_indent_on_ampersands = 0
+
+" vimtex platform specific stuff
 if has("mac")
-    let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
+    let g:vimtex_view_general_viewer
+                \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+    let g:vimtex_view_general_options = '-r @line @pdf @tex'
+    map <silent> <Leader>ls :silent
+                    \ !/usr/local/bin/displayline -r -b
+                    \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
+                    \ "%:p" <CR>
+
 elseif has("unix")
-    let g:LatexBox_viewer = '/usr/bin/okular'
+    let g:vimtex_view_general_viewer = 'okular'
+    let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
+    let g:vimtex_view_general_options_latexmk = '--unique'
 endif
-map <silent> <Leader>ls :silent
-                \ !/usr/local/displayline -r -b
-                \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
-                \ "%:p" <CR>
+
 
 " make .tex file latex by default
 let g:tex_flavor = "latex"
