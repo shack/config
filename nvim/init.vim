@@ -204,6 +204,11 @@ set completeopt-=preview
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_indent_on_ampersands = 0
 
+" Quickfix for neovim < 0.2.0, see https://github.com/lervag/vimtex/issues/750
+if has('nvim')
+    let g:vimtex_quickfix_latexlog = {'fix_paths':0}
+endif
+
 " vimtex platform specific stuff
 if has("mac")
     let g:vimtex_view_general_viewer
