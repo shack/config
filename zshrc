@@ -85,7 +85,7 @@ fi
 if [[ "$TERM" != "dumb" ]];
 then
     export LS_OPTIONS='--color=auto'
-    eval `${GNU_PREFIX}dircolors ~/.dir_colors`
+    eval `${GNU_PREFIX}dircolors ~/.dircolors`
 fi
 
 alias ls="${GNU_PREFIX}ls $LS_OPTIONS -hF"
