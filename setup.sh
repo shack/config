@@ -5,8 +5,8 @@ dircolors
 gitconfig
 gitignore
 latexmkrc
-profile
 wgetrc
+zshrc
 "
 
 self="$0"

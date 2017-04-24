@@ -74,32 +74,21 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
-# Under OSX, the gnu coreutils binaries start with g
-if [[ `uname` == "Darwin" ]];
-then
-    GNU_PREFIX="g"
-else
-    GNU_PREFIX=""
-fi
-
-if [[ "$TERM" != "dumb" ]];
-then
-    export LS_OPTIONS='--color=auto'
-    eval `${GNU_PREFIX}dircolors ~/.dircolors`
-fi
-
-alias ls="${GNU_PREFIX}ls $LS_OPTIONS -hF"
-alias ll="${GNU_PREFIX}ls $LS_OPTIONS -lhF"
-alias l="${GNU_PREFIX}ls $LS_OPTIONS -lAhF"
-alias vim=nvim
-
 if [[ `uname` == "Linux" ]];
 then
     # see the systemd script that enables the ssh agent ~/config/systemd/user/ssh-agent.service
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
     # ... to have an open just like on the mac
     alias open="xdg-open"
-fi
+    export LS_OPTIONS='--color=auto'
+elif [[ `uname` == "Darwin" ]];
+then 
+    export LS_OPTIONS='-G'
+fi 
+
+alias ls="ls $LS_OPTIONS -hF"
+alias ll="ls $LS_OPTIONS -lhF"
+alias l="ls $LS_OPTIONS -lAhF"
 
 precmd () { print -Pn "\e]1;%2d\a" }
 
