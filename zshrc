@@ -82,9 +82,9 @@ then
     alias open="xdg-open"
     export LS_OPTIONS='--color=auto'
 elif [[ `uname` == "Darwin" ]];
-then 
+then
     export LS_OPTIONS='-G'
-fi 
+fi
 
 alias ls="ls $LS_OPTIONS -hF"
 alias ll="ls $LS_OPTIONS -lhF"
