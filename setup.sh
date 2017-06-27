@@ -18,17 +18,17 @@ self="${self%/*}"
 self="${self%/.}"
 self="${self%/}"
 
-for f in $FILES; 
+for f in $FILES;
 do
     t="$HOME/.$f"
     s="$self/$f"
     if [ -e "$t" ] || [ -L "$t" ] ;
     then
         echo "$t already exists. skipping."
-    else 
+    else
         echo "creating link $t to $s"
         ln -s "$s" "$t"
     fi
 done
 
-ln -s "$self/nvim" "$HOME/.config"
+ln -s "$self/nvim" "$HOME/.config/nvim"
