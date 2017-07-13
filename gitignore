@@ -7,3 +7,11 @@
 *.aux
 *.bbl
 *.blg
+*.log
+*.nav
+*.toc
+*.vrb
+*.out
+*.snm
+*.synctex.gz
+.DS_Store
