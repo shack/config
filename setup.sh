@@ -1,6 +1,7 @@
 #! /bin/sh
 
 FILES="
+emacs
 dircolors
 gitconfig
 gitignore
