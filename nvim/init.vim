@@ -5,21 +5,21 @@ let $VIMHOME=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 call plug#begin("$VIMHOME/plugged")
 
 Plug 'jonathanfilip/vim-lucius'
-" Plug 'LaTeX-Box-Team/LaTeX-Box'
+Plug 'chrisbra/Recover.vim'
 Plug 'lervag/vimtex'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'Rip-Rip/clang_complete'
 Plug 'racer-rust/vim-racer'
 Plug 'godlygeek/tabular'
+Plug 'joom/latex-unicoder.vim'
 
 call plug#end()
 
+set spell
 set vb " no sound effects
 set nu
 set ml
@@ -51,6 +51,7 @@ syntax enable
 
 " if has("gui_running")
 colorscheme lucius
+" LuciusLightLowContrast
 LuciusDarkLowContrast
 " endif
 
@@ -87,7 +88,6 @@ inoremap <F12> <ESC>:call ToggleBackground()<CR>a
 vnoremap <F12> <ESC>:call ToggleBackground()<CR>
 
 filetype plugin on
-filetype indent on
 set grepprg=grep\ -nH\ $*
 
 function InsertCHeader ()
@@ -122,12 +122,12 @@ endfunction
 
 " Insert c_skel.txt into c and h files
 autocmd BufNewFile *.cpp call InsertCHeader()
-autocmd BufNewFile *.c call InsertCHeader()
-autocmd BufNewFile *.h call InsertHHeader()
+" autocmd BufNewFile *.c call InsertCHeader()
+" autocmd BufNewFile *.h call InsertHHeader()
 autocmd BufNewFile *.tex call InsertTexHeader()
 
 " remove trailing spaces whenever we save a C/C++ file
-autocmd FileType c,cpp,h,hpp,tex autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType c,cpp,h,hpp,tex,java autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " see tabs and trailing spaces
 set listchars=tab:>-,eol:$,trail:.,extends:#
@@ -188,21 +188,18 @@ nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
 " no preview window in omnicomplte
 set completeopt-=preview
 
-" make latex-box treat autoref properly
-" let g:LatexBox_ref_pattern= '\m\C\\v\?\(eq\|page\|auto\|short\|[cC]\)\?ref\*\?\_\s*{'
-" let g:LatexBox_quickfix = 2
-" let g:LatexBox_latexmk_async = 1
-" let g:LatexBox_personal_latexmkrc = 1
-
-" mac specific
-" if has("mac")
-    " let g:LatexBox_viewer = '/Applications/Skim.app/Contents/MacOS/Skim'
-" elseif has("unix")
-    " let g:LatexBox_viewer = '/usr/bin/okular'
-" endif
+" latex unicode input
+let g:unicoder_cancel_normal = 1
+let g:unicoder_cancel_insert = 1
+let g:unicoder_cancel_visual = 1
+nnoremap <C-l> :call unicoder#start(0)<CR>
+inoremap <C-l> <Esc>:call unicoder#start(1)<CR>
+vnoremap <C-l> :<C-u>call unicoder#selection()<CR>
 
 let g:vimtex_quickfix_mode = 2
+let g:vimtex_indent_enabled = 1
 let g:vimtex_indent_on_ampersands = 0
+let g:vimtex_motion_matchparen = 0
 
 " Quickfix for neovim < 0.2.0, see https://github.com/lervag/vimtex/issues/750
 if has('nvim')
@@ -211,20 +208,20 @@ endif
 
 " vimtex platform specific stuff
 if has("mac")
-    let g:vimtex_view_general_viewer
-                \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-    let g:vimtex_view_general_options = '-r @line @pdf @tex'
-    map <silent> <Leader>ls :silent
-                    \ !/usr/local/bin/displayline -r -b
-                    \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
-                    \ "%:p" <CR>
+    let g:vimtex_view_method = 'skim'
+    " let g:vimtex_view_general_viewer
+    "             \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+    " let g:vimtex_view_general_options = '-r @line @pdf @tex'
+    " map <silent> <Leader>ls :silent
+    "                 \ !/usr/local/bin/displayline -r -b
+    "                 \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
+    "                 \ "%:p" <CR>
 
 elseif has("unix")
     let g:vimtex_view_general_viewer = 'okular'
     let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
     let g:vimtex_view_general_options_latexmk = '--unique'
 endif
-
 
 " make .tex file latex by default
 let g:tex_flavor = "latex"
