@@ -27,10 +27,10 @@ ZSH_THEME="alanpeabody"
 # export UPDATE_ZSH_DAYS=13
 
 # Uncomment the following line to disable colors in ls.
-DISABLE_LS_COLORS="true"
+# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-DISABLE_AUTO_TITLE="true"
+# DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -74,23 +74,22 @@ export LANG=en_US.UTF-8
 export EDITOR=nvim
 export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
+LS_OPTIONS=""
 if [[ `uname` == "Linux" ]];
 then
     # see the systemd script that enables the ssh agent ~/config/systemd/user/ssh-agent.service
     export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
     # ... to have an open just like on the mac
     alias open="xdg-open"
-    export LS_OPTIONS='--color=auto'
+    # export LS_OPTIONS='--color=auto'
 elif [[ `uname` == "Darwin" ]];
 then
-    export LS_OPTIONS='-G'
+    # export LS_OPTIONS='-G'
 fi
 
-alias ls="ls $LS_OPTIONS -hF"
-alias ll="ls $LS_OPTIONS -lhF"
-alias l="ls $LS_OPTIONS -lAhF"
-
-precmd () { print -Pn "\e]1;%2d\a" }
+# alias ls="ls $LS_OPTIONS -hF"
+# alias ll="ls $LS_OPTIONS -lhF"
+# alias l="ls $LS_OPTIONS -lAhF"
 
 # don't share history among terminals
 setopt no_share_history
