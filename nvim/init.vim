@@ -16,6 +16,7 @@ Plug 'Rip-Rip/clang_complete'
 Plug 'racer-rust/vim-racer'
 Plug 'godlygeek/tabular'
 Plug 'joom/latex-unicoder.vim'
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
