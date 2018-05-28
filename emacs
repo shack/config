@@ -23,6 +23,7 @@
       (append math-symbol-list-basic math-symbol-list-extended))
 
 (add-hook 'proof-mode-hook (lambda () (set-input-method "math") ))
+(add-hook 'coq-mode-hook #'company-coq-mode)
 
 (global-set-key (kbd "RET") 'newline-and-indent)
 
@@ -32,7 +33,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coq-prog-name "/usr/local/bin/coqtop")
- '(package-selected-packages (quote (evil))))
+ '(package-selected-packages (quote (company-coq evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
