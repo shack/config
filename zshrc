@@ -97,3 +97,6 @@ setopt no_share_history
 fpath=(/usr/local/share/zsh-completions $fpath)
 
 # source /Users/hack/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
+
+# OPAM configuration
+. /Users/hack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
