@@ -10,7 +10,6 @@ Plug 'lervag/vimtex'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'Rip-Rip/clang_complete'
 Plug 'racer-rust/vim-racer'
@@ -128,7 +127,7 @@ autocmd BufNewFile *.cpp call InsertCHeader()
 autocmd BufNewFile *.tex call InsertTexHeader()
 
 " remove trailing spaces whenever we save a C/C++ file
-autocmd FileType c,cpp,h,hpp,tex,java autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+" autocmd FileType c,cpp,h,hpp,tex,java autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " see tabs and trailing spaces
 set listchars=tab:>-,eol:$,trail:.,extends:#
@@ -239,4 +238,5 @@ let g:gitgutter_max_signs = 2000
 " Rust stuff
 set hidden
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
-let $RUST_SRC_PATH = $HOME."/tmp/rust/src/"
+let g:racer_experimental_completer = 1
+let $RUST_SRC_PATH = $HOME."/tmp/rust/src"
