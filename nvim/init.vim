@@ -6,16 +6,20 @@ call plug#begin("$VIMHOME/plugged")
 
 Plug 'jonathanfilip/vim-lucius'
 Plug 'chrisbra/Recover.vim'
-Plug 'lervag/vimtex'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-airline/vim-airline'
-Plug 'Rip-Rip/clang_complete'
+Plug 'Valloric/YouCompleteMe'
 Plug 'racer-rust/vim-racer'
-Plug 'godlygeek/tabular'
+Plug 'junegunn/vim-easy-align'
 Plug 'joom/latex-unicoder.vim'
 Plug 'tpope/vim-commentary'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'lervag/vimtex'
+Plug 'chrisbra/unicode.vim'
+Plug 'adelarsq/vim-matchit'
 
 call plug#end()
 
@@ -59,20 +63,12 @@ if exists("neovim_dot_app") || has("gui_macvim")
 	set guifont=Monaco\ for\ Powerline:h12
 end
 
-" more sphisticated % matching
-runtime macros/matchit.vim
-
 " longer history
 set history=100
 
 " set shell like completion
 set wildmenu
 set wildmode=list:longest
-
-" mappings for tabilarize
-map <Leader>a& :Tabularize /&<CR>
-map <Leader>a= :Tabularize /=<CR>
-map <Leader>a: :Tabularize /:\zs<CR>
 
 function! ToggleBackground()
 	echo &background
@@ -122,21 +118,24 @@ endfunction
 
 " Insert c_skel.txt into c and h files
 autocmd BufNewFile *.cpp call InsertCHeader()
-" autocmd BufNewFile *.c call InsertCHeader()
-" autocmd BufNewFile *.h call InsertHHeader()
+autocmd BufNewFile *.c call InsertCHeader()
+autocmd BufNewFile *.h call InsertHHeader()
 autocmd BufNewFile *.tex call InsertTexHeader()
 
 " remove trailing spaces whenever we save a C/C++ file
-" autocmd FileType c,cpp,h,hpp,tex,java autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType c,cpp,h,hpp,tex,java autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " see tabs and trailing spaces
 set listchars=tab:>-,eol:$,trail:.,extends:#
+
+" ignore textfiles fir trailing whitespace
+let g:extra_whitespace_ignored_filetypes = ['mkd', 'text']
 
 " syntax highlighting for coq
 au BufRead,BufNewFile *.v set filetype=coq
 
 " C indent options (:help cinoptions-values)
-set cinoptions=l1,g0,t0,(0,w1,W4
+set cinoptions=l1,g0,t0,(0,w1,W4,:0
 
 " make snipmate recognize tex snippets by also setting the file type tex
 " au BufRead,BufNewFile *.text set ft=plaintex.tex
@@ -162,29 +161,6 @@ inoremap <Nul> <C-x><C-o>
 " search for version control markers
 map <Leader>d /^\(<<<<<<<\\|=======\\|>>>>>>>\)
 
-" clang complete
-let g:clang_auto_select=1
-let g:clang_complete_auto=1
-let g:clang_complete_copen=1
-let g:clang_close_preview = 1
-let g:clang_hl_errors=1
-let g:clang_periodic_quickfix=0
-let g:clang_snippets=1
-let g:clang_snippets_engine="clang_complete"
-let g:clang_conceal_snippets=0
-let g:clang_exec="clang"
-let g:clang_auto_user_options="path, .clang_complete"
-let g:clang_use_library=1
-let g:clang_sort_algo="priority"
-let g:clang_complete_macros=1
-let g:clang_complete_patterns=0
-if has("mac")
-    let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/'
-elseif has("unix")
-    let g:clang_library_path='/usr/lib/libclang.so'
-endif
-nnoremap <Leader>q :call g:ClangUpdateQuickFix()<CR>
-
 " no preview window in omnicomplte
 set completeopt-=preview
 
@@ -196,6 +172,7 @@ nnoremap <C-l> :call unicoder#start(0)<CR>
 inoremap <C-l> <Esc>:call unicoder#start(1)<CR>
 vnoremap <C-l> :<C-u>call unicoder#selection()<CR>
 
+" vimtex stuff
 let g:vimtex_quickfix_mode = 2
 let g:vimtex_indent_enabled = 1
 let g:vimtex_indent_on_ampersands = 0
@@ -226,6 +203,12 @@ endif
 " make .tex file latex by default
 let g:tex_flavor = "latex"
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap <Leader>a <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap <Leader>a <Plug>(EasyAlign)
+
 " Disable folding in markdown
 let g:vim_markdown_folding_disabled=1
 
@@ -240,3 +223,18 @@ set hidden
 let g:racer_cmd = $HOME."/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 let $RUST_SRC_PATH = $HOME."/tmp/rust/src"
+
+" You Complete Me config
+nnoremap <leader>jd :YcmCompleter GoTo<CR>
+let g:ycm_filetype_blacklist = {
+      \ 'tex': 1,
+      \}
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterUndoHunk
+nmap <Leader>hv <Plug>GitGutterPreviewHunk
