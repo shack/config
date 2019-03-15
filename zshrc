@@ -71,7 +71,7 @@ bindkey -v
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export EDITOR=nvim
+export EDITOR=vim
 export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 LS_OPTIONS=""
