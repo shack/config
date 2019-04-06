@@ -99,6 +99,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 export PASSWORD_STORE_GENERATED_LENGTH=24
 export PASSWORD_STORE_CHARACTER_SET="a-zA-Z0-9"
 
+export ACK_PAGER_COLOR="less -r"
+
 # source /Users/hack/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # OPAM configuration
