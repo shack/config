@@ -186,14 +186,6 @@ endif
 " vimtex platform specific stuff
 if has("mac")
     let g:vimtex_view_method = 'skim'
-    " let g:vimtex_view_general_viewer
-    "             \ = '/Applications/Skim.app/Contents/SharedSupport/displayline'
-    " let g:vimtex_view_general_options = '-r @line @pdf @tex'
-    " map <silent> <Leader>ls :silent
-    "                 \ !/usr/local/bin/displayline -r -b
-    "                 \ <C-R>=line('.')<CR> "<C-R>=LatexBox_GetOutputFile()<CR>"
-    "                 \ "%:p" <CR>
-
 elseif has("unix")
     let g:vimtex_view_general_viewer = 'okular'
     let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
