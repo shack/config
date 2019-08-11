@@ -32,4 +32,5 @@ do
     fi
 done
 
+mkdir -p $HOME/.config
 ln -s "$self/nvim" "$HOME/.config/nvim"
