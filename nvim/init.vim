@@ -47,6 +47,7 @@ set nofoldenable
 set wrap
 set noincsearch
 set laststatus=2
+set colorcolumn=80
 
 " open split window on the right
 set splitright
