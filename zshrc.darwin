@@ -1,2 +1,1 @@
-export ZSH="$HOME/.oh-my-zsh";
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'

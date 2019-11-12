@@ -1,3 +1,5 @@
+[ ! -e "$HOME/.zshrc.local" ] || source "$HOME/.zshrc.local"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -51,7 +53,14 @@ plugins=(git osx)
 # source in os-specific config file
 source "$HOME/.zshrc.os"
 
-source "$ZSH/oh-my-zsh.sh"
+# if we have oh my zsh, use it, else get some decent prompt
+ZSH=${ZSH:="$HOME/.oh-my-zsh"}
+if [ -e "$ZSH" ];
+then
+    source "$ZSH/oh-my-zsh.sh"
+else
+    PROMPT='%F{magenta}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f $ '
+fi
 
 export MANPATH="/usr/local/man:$MANPATH"
 HISTFILE=~/.histfile
