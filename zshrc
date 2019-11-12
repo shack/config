@@ -1,12 +1,3 @@
-# Path to your oh-my-zsh installation.
-if [[ `uname` == "Darwin" ]];
-then
-    # I have omzsh in my home on my mac and globally installed under linux
-    export ZSH="$HOME/.oh-my-zsh";
-else
-    export ZSH=/usr/share/oh-my-zsh;
-fi
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -57,12 +48,12 @@ ZSH_THEME="alanpeabody"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git osx)
 
-# User configuration
-
-export MANPATH="/usr/local/man:$MANPATH"
+# source in os-specific config file
+source "~/.zshrc.os"
 
 source $ZSH/oh-my-zsh.sh
 
+export MANPATH="/usr/local/man:$MANPATH"
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
@@ -72,20 +63,9 @@ bindkey -v
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
-export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
 LS_OPTIONS=""
-if [[ `uname` == "Linux" ]];
-then
-    # see the systemd script that enables the ssh agent ~/config/systemd/user/ssh-agent.service
-    export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
-    # ... to have an open just like on the mac
-    alias open="xdg-open"
-    # export LS_OPTIONS='--color=auto'
-elif [[ `uname` == "Darwin" ]];
-then
-    # export LS_OPTIONS='-G'
-fi
 
 # alias ls="ls $LS_OPTIONS -hF"
 # alias ll="ls $LS_OPTIONS -lhF"

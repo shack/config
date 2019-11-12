@@ -34,3 +34,11 @@ done
 
 mkdir -p $HOME/.config
 ln -s "$self/nvim" "$HOME/.config/nvim"
+
+# install os-specific zshrc file
+osfile="$self/zshrc.$(uname | tr '[:upper:]' '[:lower:]')"
+if [ -e "$osfile" ];
+    ln -s "$osfile" "$HOME/.zshrc.os";
+else
+    echo "no os specific zshrc file found: $osfile";
+fi
