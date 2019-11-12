@@ -74,7 +74,7 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 export PATH="/usr/local/opt/ruby/bin:${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
-[ ! -z "${LS_OPTIONS}" ] || alias ls="ls $LS_OPTIONS"
+[ ! -z "${LS_OPTIONS}" ] && alias ls="ls $LS_OPTIONS"
 
 # don't share history among terminals
 setopt no_share_history
