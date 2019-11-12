@@ -74,11 +74,11 @@ export LANG=en_US.UTF-8
 export EDITOR=vim
 export PATH="/usr/local/opt/ruby/bin:${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 
-LS_OPTIONS=""
-
 # alias ls="ls $LS_OPTIONS -hF"
 # alias ll="ls $LS_OPTIONS -lhF"
 # alias l="ls $LS_OPTIONS -lAhF"
+
+alias ls="ls $LS_OPTIONS"
 
 # don't share history among terminals
 setopt no_share_history
