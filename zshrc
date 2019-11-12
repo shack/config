@@ -49,9 +49,9 @@ ZSH_THEME="alanpeabody"
 plugins=(git osx)
 
 # source in os-specific config file
-source "~/.zshrc.os"
+source "$HOME/.zshrc.os"
 
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 
 export MANPATH="/usr/local/man:$MANPATH"
 HISTFILE=~/.histfile
