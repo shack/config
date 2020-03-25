@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>phrase</key>
+        <string>Viele Grüße
+Sebastian Hack</string>
+		<key>shortcut</key>
+		<string>VGH</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+        <string>Viele Grüße
+Sebastian</string>
+		<key>shortcut</key>
+		<string>VG</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+        <string>Vielen Dank und viele Grüße
+Sebastian Hack</string>
+		<key>shortcut</key>
+		<string>VDH</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+        <string>Vielen Dank und viele Grüße
+Sebastian</string>
+		<key>shortcut</key>
+		<string>VD</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+        <string>Mit freundlichen Grüßen
+Sebastian Hack</string>
+		<key>shortcut</key>
+		<string>MFG</string>
+	</dict>
+</array>
+</plist>
