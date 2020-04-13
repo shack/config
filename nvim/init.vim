@@ -63,7 +63,7 @@ LuciusDarkLowContrast
 " endif
 
 if exists("neovim_dot_app") || has("gui_macvim")
-	set guifont=Monaco\ for\ Powerline:h12
+	set guifont=Source\ Code\ Pro\ for\ Powerline:h12
 end
 
 " longer history
