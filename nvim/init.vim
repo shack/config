@@ -20,6 +20,7 @@ Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 Plug 'chrisbra/unicode.vim'
 Plug 'adelarsq/vim-matchit'
+Plug 'JamshedVesuna/vim-markdown-preview'
 
 call plug#end()
 
@@ -231,3 +232,5 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 nmap <Leader>ha <Plug>(GitGutterStageHunk)
 nmap <Leader>hr <Plug>(GitGutterUndoHunk)
 nmap <Leader>hv <Plug>(GitGutterPreviewHunk)
+
+let vim_markdown_preview_github=1
