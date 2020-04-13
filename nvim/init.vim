@@ -49,6 +49,7 @@ set wrap
 set noincsearch
 set laststatus=2
 set colorcolumn=80
+set virtualedit=all
 
 " open split window on the right
 set splitright
