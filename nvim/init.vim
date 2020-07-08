@@ -179,6 +179,12 @@ let g:vimtex_quickfix_mode = 2
 let g:vimtex_indent_enabled = 1
 let g:vimtex_indent_on_ampersands = 0
 let g:vimtex_motion_matchparen = 0
+let g:vimtex_indent_delims = {
+          \ 'open' : ['{'],
+          \ 'close' : ['}'],
+          \ 'close_indented' : 0,
+          \ 'include_modified_math' : 0,
+          \}
 
 " Quickfix for neovim < 0.2.0, see https://github.com/lervag/vimtex/issues/750
 if has('nvim')
