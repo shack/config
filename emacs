@@ -26,6 +26,8 @@
 (add-hook 'coq-mode-hook #'company-coq-mode)
 
 (global-set-key (kbd "RET") 'newline-and-indent)
+(setq-default indent-tabs-mode nil)
+(setq tab-width 4)
 
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
