@@ -62,22 +62,23 @@ else
     PROMPT='%F{magenta}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f $ '
 fi
 
-export MANPATH="/usr/local/man:$MANPATH"
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
+# don't share history among terminals
+setopt no_share_history
+
 # End of lines configured by zsh-newuser-install
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
-export PATH="/usr/local/opt/ruby/bin:${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/opt/ruby/bin:${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH:${HOME}/.cargo/bin"
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 [ ! -z "${LS_OPTIONS}" ] && alias ls="ls $LS_OPTIONS"
-
-# don't share history among terminals
-setopt no_share_history
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
