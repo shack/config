@@ -95,3 +95,8 @@ export ACK_PAGER_COLOR="less -r"
 
 # OPAM configuration
 . /Users/hack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# Python configuration through pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
