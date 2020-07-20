@@ -119,13 +119,13 @@ function InsertHHeader ()
 endfunction
 
 " Insert c_skel.txt into c and h files
-autocmd BufNewFile *.cpp call InsertCHeader()
-autocmd BufNewFile *.c call InsertCHeader()
-autocmd BufNewFile *.h call InsertHHeader()
+" autocmd BufNewFile *.cpp call InsertCHeader()
+" autocmd BufNewFile *.c call InsertCHeader()
+" autocmd BufNewFile *.h call InsertHHeader()
 autocmd BufNewFile *.tex call InsertTexHeader()
 
 " remove trailing spaces whenever we save a C/C++ file
-autocmd FileType c,cpp,h,hpp,tex,java autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType c,cpp,h,hpp,tex,java,md autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " see tabs and trailing spaces
 set listchars=tab:>-,eol:$,trail:.,extends:#
@@ -219,13 +219,25 @@ let g:airline_powerline_fonts = 1
 let g:gitgutter_max_signs = 2000
 
 " Rust stuff
-set hidden
-let g:racer_cmd = $HOME."/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
-let $RUST_SRC_PATH = $HOME."/tmp/rust/src"
+" set hidden
+" let g:racer_cmd = $HOME."/.cargo/bin/racer"
+" let g:racer_experimental_completer = 1
+" augroup Racer
+"     autocmd!
+"     autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
+"     autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+"     autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+"     autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+"     autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+" augroup END
+
+" let $RUST_SRC_PATH = $HOME."/tmp/rust/src"
 
 " You Complete Me config
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
+let g:ycm_global_ycm_extra_conf = $HOME.'/.vim/.ycm_extra_conf.py'
+let g:ycm_rls_binary_path = $HOME.'/.cargo/bin/rls'
+let g:ycm_rustc_binary_path = $HOME.'/.cargo/bin/rustc'
 let g:ycm_filetype_blacklist = {
       \ 'tex': 1,
       \}
