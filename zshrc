@@ -81,6 +81,11 @@ setopt no_share_history
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
+if [ ! -e 'config/github_api' ];
+then
+    source config/github_api
+fi
+
 export PASSWORD_STORE_GENERATED_LENGTH=24
 export PASSWORD_STORE_CHARACTER_SET="a-zA-Z0-9"
 
