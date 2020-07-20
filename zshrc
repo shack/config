@@ -82,7 +82,7 @@ export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
 
-if [ ! -e 'config/github_api' ];
+if [ ! 'config/github_api' ];
 then
     source config/github_api
 fi
