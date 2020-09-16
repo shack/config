@@ -20,6 +20,7 @@ Plug 'chrisbra/unicode.vim'
 Plug 'adelarsq/vim-matchit'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'Valloric/YouCompleteMe'
+Plug 'whonore/Coqtail'
 
 call plug#end()
 
