@@ -24,7 +24,6 @@ Plug 'whonore/Coqtail'
 
 call plug#end()
 
-set spell
 set vb " no sound effects
 set nu
 set ml
