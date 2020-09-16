@@ -252,3 +252,9 @@ nmap <Leader>hu <Plug>(GitGutterUndoHunk)
 nmap <Leader>hv <Plug>(GitGutterPreviewHunk)
 
 let vim_markdown_preview_github=1
+
+function! g:CoqtailHighlight()
+    hi def CoqtailChecked guibg=DimGrey
+    hi def CoqtailSent guibg=SlateGrey
+endfunction
+
