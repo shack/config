@@ -125,7 +125,7 @@ endfunction
 autocmd BufNewFile *.tex call InsertTexHeader()
 
 " remove trailing spaces whenever we save a C/C++ file
-autocmd FileType c,cpp,h,hpp,tex,java,md autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+autocmd FileType c,cpp,h,hpp,tex,java,md,v autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " see tabs and trailing spaces
 set listchars=tab:>-,eol:$,trail:.,extends:#
@@ -253,8 +253,23 @@ nmap <Leader>hv <Plug>(GitGutterPreviewHunk)
 
 let vim_markdown_preview_github=1
 
+" Coqtail
 function! g:CoqtailHighlight()
     hi def CoqtailChecked guibg=DimGrey
     hi def CoqtailSent guibg=SlateGrey
 endfunction
-
+" ProofGeneral key bindings for Coqtail
+autocmd FileType coq map  <buffer> <C-c><C-n>      <Plug>CoqNext
+autocmd FileType coq map  <buffer> <C-c><C-u>      <Plug>CoqUndo
+autocmd FileType coq map  <buffer> <C-c><C-CR>     <Plug>CoqToLine
+autocmd FileType coq map  <buffer> <C-c><C-c>      <Plug>CoqInterrupt
+autocmd FileType coq map  <buffer> <C-c><C-x>      <Plug>CoqStop
+autocmd FileType coq map  <buffer> <C-c><C-r>      <Plug>CoqToTop
+autocmd FileType coq imap <buffer> <C-c><C-f>      <Esc>:Coq Search 
+autocmd FileType coq nmap <buffer> <C-c><C-f>      :Coq Search 
+autocmd FileType coq imap <buffer> <C-c><C-a><C-c> <Esc>:Coq Check 
+autocmd FileType coq nmap <buffer> <C-c><C-a><C-c> :Coq Check 
+autocmd FileType coq imap <buffer> <C-c><C-a><C-p> <Esc>:Coq Print 
+autocmd FileType coq nmap <buffer> <C-c><C-a><C-p> :Coq Print 
+autocmd FileType coq imap <buffer> <C-c><C-a><C-n> <Esc>:Coq Notation 
+autocmd FileType coq nmap <buffer> <C-c><C-a><C-n> :Coq Notation 
