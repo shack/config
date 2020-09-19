@@ -259,12 +259,18 @@ function! g:CoqtailHighlight()
     hi def CoqtailSent guibg=SlateGrey
 endfunction
 " ProofGeneral key bindings for Coqtail
-autocmd FileType coq map  <buffer> <C-c><C-n>      <Plug>CoqNext
-autocmd FileType coq map  <buffer> <C-c><C-u>      <Plug>CoqUndo
-autocmd FileType coq map  <buffer> <C-c><C-CR>     <Plug>CoqToLine
-autocmd FileType coq map  <buffer> <C-c><C-c>      <Plug>CoqInterrupt
-autocmd FileType coq map  <buffer> <C-c><C-x>      <Plug>CoqStop
-autocmd FileType coq map  <buffer> <C-c><C-r>      <Plug>CoqToTop
+autocmd FileType coq imap <buffer> <C-c><C-n>      <Plug>CoqNext
+autocmd FileType coq nmap <buffer> <C-c><C-n>      <Plug>CoqNext
+autocmd FileType coq imap <buffer> <C-c><C-u>      <Plug>CoqUndo
+autocmd FileType coq nmap <buffer> <C-c><C-u>      <Plug>CoqUndo
+autocmd FileType coq imap <buffer> <C-c><C-CR>     <Plug>CoqToLine
+autocmd FileType coq nmap <buffer> <C-c><C-CR>     <Plug>CoqToLine
+autocmd FileType coq imap <buffer> <C-c><C-c>      <Plug>CoqInterrupt
+autocmd FileType coq nmap <buffer> <C-c><C-c>      <Plug>CoqInterrupt
+autocmd FileType coq imap <buffer> <C-c><C-x>      <Plug>CoqStop
+autocmd FileType coq nmap <buffer> <C-c><C-x>      <Plug>CoqStop
+autocmd FileType coq imap <buffer> <C-c><C-r>      <Plug>CoqToTop
+autocmd FileType coq nmap <buffer> <C-c><C-r>      <Plug>CoqToTop
 autocmd FileType coq imap <buffer> <C-c><C-f>      <Esc>:Coq Search 
 autocmd FileType coq nmap <buffer> <C-c><C-f>      :Coq Search 
 autocmd FileType coq imap <buffer> <C-c><C-a><C-c> <Esc>:Coq Check 
