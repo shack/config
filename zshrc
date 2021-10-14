@@ -75,8 +75,9 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export EDITOR=vim
 export MANPATH="/usr/local/man:$MANPATH"
-export PATH="/usr/local/opt/ruby/bin:${HOME}/bin:/usr/local/bin:/usr/local/sbin:$PATH:${HOME}/.cargo/bin"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+export PATH="${HOME}/.cargo/bin:${HOME}/bin:$PATH"
+eval $(/usr/local/bin/brew shellenv)
+# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 [ ! -z "${LS_OPTIONS}" ] && alias ls="ls $LS_OPTIONS"
 
@@ -92,12 +93,15 @@ export PASSWORD_STORE_CHARACTER_SET="a-zA-Z0-9"
 
 export ACK_PAGER_COLOR="less -r"
 
+# todo.sh alias
+alias t="todo.sh"
+
 # source /Users/hack/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # OPAM configuration
 . /Users/hack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # Python configuration through pyenv
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
+eval "$(pyenv init -)"
+
+source /Users/hack/.config/broot/launcher/bash/br
