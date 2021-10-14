@@ -14,13 +14,14 @@ Plug 'junegunn/vim-easy-align'
 Plug 'joom/latex-unicoder.vim'
 Plug 'tpope/vim-commentary'
 Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'lervag/vimtex'
 Plug 'chrisbra/unicode.vim'
 Plug 'adelarsq/vim-matchit'
 Plug 'JamshedVesuna/vim-markdown-preview'
 Plug 'Valloric/YouCompleteMe'
 Plug 'whonore/Coqtail'
+Plug 'Vimjas/vim-python-pep8-indent'
 
 call plug#end()
 
@@ -125,13 +126,13 @@ endfunction
 autocmd BufNewFile *.tex call InsertTexHeader()
 
 " remove trailing spaces whenever we save a C/C++ file
-autocmd FileType c,cpp,h,hpp,tex,java,md,v autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
+" autocmd FileType c,cpp,h,hpp,tex,java,md,v autocmd BufWritePre <buffer> :call setline(1,map(getline(1,"$"),'substitute(v:val,"\\s\\+$","","")'))
 
 " see tabs and trailing spaces
 set listchars=tab:>-,eol:$,trail:.,extends:#
 
 " ignore textfiles fir trailing whitespace
-let g:extra_whitespace_ignored_filetypes = ['mkd', 'text']
+let g:extra_whitespace_ignored_filetypes = ['text']
 
 " syntax highlighting for coq
 au BufRead,BufNewFile *.v set filetype=coq
@@ -161,7 +162,7 @@ inoremap <Nul> <C-x><C-o>
 " :highlight SpellLocal term=underline cterm=underline gui=underline guifg=Orange
 
 " search for version control markers
-map <Leader>d /^\(<<<<<<<\\|=======\\|>>>>>>>\)
+map <Leader>o /^\(<<<<<<<\\|=======\\|>>>>>>>\)
 
 " no preview window in omnicomplte
 set completeopt-=preview
@@ -176,20 +177,13 @@ vnoremap <C-l> :<C-u>call unicoder#selection()<CR>
 
 " vimtex stuff
 let g:vimtex_quickfix_mode = 2
-let g:vimtex_indent_enabled = 1
-let g:vimtex_indent_on_ampersands = 0
-let g:vimtex_motion_matchparen = 0
+let g:vimtex_indent_enabled = 0
 let g:vimtex_indent_delims = {
           \ 'open' : ['{'],
           \ 'close' : ['}'],
           \ 'close_indented' : 0,
           \ 'include_modified_math' : 0,
           \}
-
-" Quickfix for neovim < 0.2.0, see https://github.com/lervag/vimtex/issues/750
-if has('nvim')
-    let g:vimtex_quickfix_latexlog = {'fix_paths':0}
-endif
 
 " vimtex platform specific stuff
 if has("mac")
@@ -214,6 +208,12 @@ let g:vim_markdown_folding_disabled=1
 
 " enable powerline fonts
 let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+" column number symbol is not available in sourcecodepro
+" let g:airline_symbols.colnr = 'C'
+let g:airline_section_z = "%p%% %l/%L %c"
 
 " Increase threshold for diff signs left
 let g:gitgutter_max_signs = 2000
@@ -235,14 +235,15 @@ let g:gitgutter_max_signs = 2000
 
 " You Complete Me config
 nnoremap <leader>jd :YcmCompleter GoTo<CR>
-let g:ycm_global_ycm_extra_conf = $HOME.'/.vim/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = $HOME.'/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_rls_binary_path = $HOME.'/.cargo/bin/rls'
 let g:ycm_rustc_binary_path = $HOME.'/.cargo/bin/rustc'
 let g:ycm_filetype_blacklist = {
       \ 'tex': 1,
       \}
 
-" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+" Trigger configuration. 
+" Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
