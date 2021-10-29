@@ -8,6 +8,7 @@ gitignore
 latexmkrc
 wgetrc
 zshrc
+zprofile
 "
 
 self="$0"
@@ -36,10 +37,10 @@ mkdir -p $HOME/.config
 ln -s "$self/nvim" "$HOME/.config/nvim"
 
 # install os-specific zshrc file
-osfile="$self/zshrc.$(uname | tr '[:upper:]' '[:lower:]')"
+osfile="$self/zprofile.$(uname | tr '[:upper:]' '[:lower:]')"
 if [ -e "$osfile" ];
 then
-    ln -s "$osfile" "$HOME/.zshrc.os";
+    ln -s "$osfile" "$HOME/.profile.os";
 else
-    echo "no os specific zshrc file found: $osfile";
+    echo "no os specific zprofile file found: $osfile";
 fi

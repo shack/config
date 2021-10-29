@@ -1,5 +1,3 @@
-[ ! -e "$HOME/.zshrc.local" ] || source "$HOME/.zshrc.local"
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -50,9 +48,6 @@ ZSH_THEME="alanpeabody"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git osx)
 
-# source in os-specific config file
-source "$HOME/.zshrc.os"
-
 # if we have oh my zsh, use it, else get some decent prompt
 ZSH=${ZSH:="$HOME/.oh-my-zsh"}
 if [ -e "$ZSH" ];
@@ -69,39 +64,4 @@ bindkey -v
 # don't share history among terminals
 setopt no_share_history
 
-# End of lines configured by zsh-newuser-install
-
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export EDITOR=vim
-export MANPATH="/usr/local/man:$MANPATH"
-export PATH="${HOME}/.cargo/bin:${HOME}/bin:$PATH"
-eval $(/usr/local/bin/brew shellenv)
-# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-
-[ ! -z "${LS_OPTIONS}" ] && alias ls="ls $LS_OPTIONS"
-
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-if [ ! 'config/github_api' ];
-then
-    source config/github_api
-fi
-
-export PASSWORD_STORE_GENERATED_LENGTH=24
-export PASSWORD_STORE_CHARACTER_SET="a-zA-Z0-9"
-
-export ACK_PAGER_COLOR="less -r"
-
-# todo.sh alias
-alias t="todo.sh"
-
-# source /Users/hack/Library/Python/2.7/lib/python/site-packages/powerline/bindings/zsh/powerline.zsh
-
-# OPAM configuration
-. /Users/hack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-# Python configuration through pyenv
 eval "$(pyenv init -)"
-
-source /Users/hack/.config/broot/launcher/bash/br
