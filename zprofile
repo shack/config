@@ -1,5 +1,5 @@
-# login shell, before zshrc
 
+# login shell, before zshrc
 include () {
     [[ -f "$1" ]] && source "$1"
 }
@@ -63,9 +63,10 @@ export ACK_PAGER_COLOR="less -r"
 
 # todo.sh alias
 alias t="todo.py"
+alias td="todo.py -c ~/tmp/todo/test.ini"
 
 # OPAM configuration
-. /Users/hack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# . /Users/hack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # Python configuration through pyenv
 eval "$(pyenv init --path)"
