@@ -46,7 +46,7 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx)
+plugins=(git macos)
 
 # if we have oh my zsh, use it, else get some decent prompt
 ZSH=${ZSH:="$HOME/.oh-my-zsh"}
