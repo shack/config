@@ -1,4 +1,4 @@
 eval $(/usr/local/bin/brew shellenv)
 export SSH_AUTH_SOCK=$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
-LS_OPTIONS="-G"
+# LS_OPTIONS="-G"
