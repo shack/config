@@ -56,14 +56,16 @@ then
     source config/github_api
 fi
 
-export PASSWORD_STORE_GENERATED_LENGTH=24
+export PASSWORD_STORE_GENERATED_LENGTH=32
 export PASSWORD_STORE_CHARACTER_SET="a-zA-Z0-9"
 
 export ACK_PAGER_COLOR="less -r"
 
 # todo.sh alias
 alias t="todo.py"
+alias n="todo.py -c ~/.notes.ini"
 alias td="todo.py -c ~/tmp/todo/test.ini"
+alias pwd_ssh="ssh -o PubkeyAuthentication=no"
 
 # OPAM configuration
 # . /Users/hack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
