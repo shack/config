@@ -63,3 +63,4 @@ SAVEHIST=1000
 bindkey -v
 # don't share history among terminals
 setopt no_share_history
+eval $(opam env)
