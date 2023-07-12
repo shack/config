@@ -35,12 +35,14 @@ done
 
 mkdir -p $HOME/.config
 ln -s "$self/nvim" "$HOME/.config/nvim"
+ln -s "$HOME/.config/nvim" "$HOME/.vim"
+ln -s "$HOME/.config/nvim/init.vim" "$HOME/.vimrc"
 
 # install os-specific zshrc file
 osfile="$self/zprofile.$(uname | tr '[:upper:]' '[:lower:]')"
 if [ -e "$osfile" ];
 then
-    ln -s "$osfile" "$HOME/.profile.os";
+    ln -s "$osfile" "$HOME/.zprofile.os";
 else
     echo "no os specific zprofile file found: $osfile";
 fi
