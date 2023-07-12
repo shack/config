@@ -4,6 +4,7 @@ let $VIMHOME=fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
 call plug#begin("$VIMHOME/plugged")
 
+Plug 'arcticicestudio/nord-vim'
 Plug 'jonathanfilip/vim-lucius'
 Plug 'chrisbra/Recover.vim'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -19,7 +20,6 @@ Plug 'lervag/vimtex'
 Plug 'chrisbra/unicode.vim'
 Plug 'adelarsq/vim-matchit'
 Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'Valloric/YouCompleteMe'
 Plug 'whonore/Coqtail'
 Plug 'Vimjas/vim-python-pep8-indent'
 
@@ -56,10 +56,12 @@ set splitright
 
 syntax enable
 
+colorscheme nord
+" Lucius colorscheme
 " if has("gui_running")
-colorscheme lucius
+" colorscheme lucius
 " LuciusLightLowContrast
-LuciusDarkLowContrast
+" LuciusDarkLowContrast
 " endif
 
 if exists("neovim_dot_app") || has("gui_macvim")
@@ -68,6 +70,11 @@ end
 
 " longer history
 set history=100
+
+:nnoremap <F5> "=strftime("%d %b %Y")<CR>P
+:inoremap <F5> <C-R>=strftime("%d %b %Y")<CR>
+:nnoremap <F6> "=strftime("%Y-%m-%d")<CR>P
+:inoremap <F6> <C-R>=strftime("%Y-%m-%d")<CR>
 
 " set shell like completion
 set wildmenu
