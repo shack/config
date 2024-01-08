@@ -46,7 +46,7 @@ ZSH_THEME="alanpeabody"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git pass macos)
+plugins=(git pass macos timer)
 
 # if we have oh my zsh, use it, else get some decent prompt
 ZSH=${ZSH:="$HOME/.oh-my-zsh"}
@@ -63,6 +63,3 @@ SAVEHIST=1000
 bindkey -v
 # don't share history among terminals
 setopt no_share_history
-
-# opam configuration
-[[ ! -r /Users/hack/.opam/opam-init/init.zsh ]] || source /Users/hack/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

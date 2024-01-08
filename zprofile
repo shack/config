@@ -67,22 +67,8 @@ alias n="todo.py -c ~/.notes.ini"
 alias td="todo.py -c ~/tmp/todo/test.ini"
 alias pwd_ssh="ssh -o PubkeyAuthentication=no"
 
-function preexec() {
-  timer=$(($(date +%s)))
-}
-
-function precmd() {
-  if [ $timer ]; then
-    now=$(($(date +%s)))
-    elapsed=$(($now-$timer))
-
-    export RPROMPT="%F{cyan}${elapsed}s %{$reset_color%}"
-    unset timer
-  fi
-}
-
-# OPAM configuration
-# . /Users/hack/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# opam configuration
+[[ ! -r /Users/hack/.opam/opam-init/init.zsh ]] || source /Users/hack/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 # Python configuration through pyenv
 eval "$(pyenv init --path)"
