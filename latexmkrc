@@ -1,4 +1,4 @@
-# $pdf_mode = 1; # pdflatex
+$pdf_mode = 1; # pdflatex
 # $pdf_mode = 2; # ps -> pdf
 # $pdf_mode = 3; # dvi -> ps -> pdf
 # $pdf_mode = 4; # lualatex
