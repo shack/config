@@ -62,9 +62,10 @@ export PASSWORD_STORE_CHARACTER_SET="a-zA-Z0-9"
 export ACK_PAGER_COLOR="less -r"
 
 # todo.sh alias
-alias t="todo.py"
-alias n="todo.py -c ~/.notes.ini"
-alias td="todo.py -c ~/tmp/todo/test.ini"
+# alias t="todo.py"
+# alias n="todo.py -c ~/.notes.ini"
+# alias td="todo.py -c ~/tmp/todo/test.ini"
+alias t="vi ~/Desktop/todo/todo.txt"
 alias pwd_ssh="ssh -o PubkeyAuthentication=no"
 
 # opam configuration
