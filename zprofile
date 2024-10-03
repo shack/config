@@ -44,9 +44,6 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
     export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
-export PATH="${HOME}/.cargo/bin:${HOME}/bin:$PATH"
-# export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-
 [ ! -z "${LS_OPTIONS}" ] && alias ls="ls $LS_OPTIONS"
 
 fpath=(/usr/local/share/zsh-completions $fpath)
@@ -67,6 +64,9 @@ export ACK_PAGER_COLOR="less -r"
 # alias td="todo.py -c ~/tmp/todo/test.ini"
 alias t="vi ~/Desktop/todo/todo.txt"
 alias pwd_ssh="ssh -o PubkeyAuthentication=no"
+
+# Rust
+export PATH="${HOME}/.cargo/bin:${HOME}/bin:$PATH"
 
 # opam configuration
 [[ ! -r /Users/hack/.opam/opam-init/init.zsh ]] || source /Users/hack/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null

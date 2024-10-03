@@ -63,6 +63,3 @@ SAVEHIST=1000
 bindkey -v
 # don't share history among terminals
 setopt no_share_history
-
-# opam configuration
-[[ ! -r /Users/hack/.opam/opam-init/init.zsh ]] || source /Users/hack/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
